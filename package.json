@@ -10,14 +10,26 @@
   "devDependencies": {
     "@nuxtjs/color-mode": "^3.2.0",
     "@nuxtjs/tailwindcss": "^6.2.0",
+    "@prisma/client": "^4.9.0",
+    "@types/bcrypt": "^5.0.0",
+    "@types/uuid": "^9.0.0",
     "@volar-plugins/vetur": "latest",
+    "@vueuse/core": "^9.11.0",
     "autoprefixer": "^10.4.13",
+    "bcrypt": "^5.1.0",
+    "flowbite": "^1.6.2",
     "nuxt": "3.0.0",
-    "postcss": "^8.4.20",
-    "tailwindcss-dark-mode": "^1.1.7"
+    "postcss": "^8.4.21",
+    "sass": "^1.57.1",
+    "tailwindcss-dark-mode": "^1.1.7",
+    "prisma": "^4.9.0",
+    "uuid": "^9.0.0"
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.7",
     "@heroicons/vue": "^2.0.13"
+  },
+  "prisma": {
+    "schema": "server/database/schema.prisma"
   }
 }
