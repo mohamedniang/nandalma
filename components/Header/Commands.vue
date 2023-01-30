@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { PlusCircleIcon, MagnifyingGlassIcon } from '@heroicons/vue/20/solid'
+import { PlusCircleIcon, MagnifyingGlassIcon } from '@heroicons/vue/20/solid/index'
 const search = ref("")
 </script>
 

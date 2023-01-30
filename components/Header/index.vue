@@ -104,7 +104,7 @@
 <script setup>
 import { ref } from 'vue'
 import { Switch, DisclosureButton, DisclosurePanel, Disclosure, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
-import { SunIcon, MoonIcon, UserIcon } from '@heroicons/vue/20/solid'
+import { SunIcon, MoonIcon, UserIcon } from '@heroicons/vue/20/solid/index'
 
 const user = useState('user')
 const colorMode = useColorMode()
