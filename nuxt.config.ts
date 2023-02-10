@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
+    // "@nuxtjs/moment",
     '@nuxtjs/tailwindcss',
     "@nuxtjs/color-mode",
   ],
@@ -19,5 +20,5 @@ export default defineNuxtConfig({
   },
   typescript: {
     shim: false,
-  },
+  }
 });

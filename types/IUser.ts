@@ -5,4 +5,7 @@ export interface IUser {
   loginType?: string
   password?: string
   email?: string
+  createdAt: Date
+  updatedAt: Date
+  deletedAt?: Date
 }

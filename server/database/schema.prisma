@@ -20,6 +20,7 @@ model User {
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
   deletedAt DateTime?
+  Votes     Vote[]
 }
 
 model Session {
@@ -39,19 +40,40 @@ model Question {
   title       String?
   description String?
   answers     Answer[]
+  voteCount   Int       @default(0)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
   deletedAt   DateTime?
+  votes       Vote[]
 }
 
 model Answer {
   id         Int       @id @default(autoincrement())
-  question   Question  @relation(fields: [questionId], references: [id])
-  questionId Int
+  question   Question? @relation(fields: [questionId], references: [id])
+  questionId Int?
   author     User      @relation(fields: [authorId], references: [id])
   authorId   Int
   text       String?
+  voteCount  Int       @default(0)
+  replyTo    Answer?   @relation("reply_rel", fields: [replyToId], references: [id])
+  replyToId  Int?
+  replies    Answer[]  @relation("reply_rel")
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
   deletedAt  DateTime?
+  votes      Vote[]
+}
+
+model Vote {
+  id         Int       @id @default(autoincrement())
+  feedback   Boolean
+  user       User      @relation(references: [id], fields: [userId])
+  userId     Int
+  answer     Answer?   @relation(references: [id], fields: [answerId])
+  answerId   Int?
+  question   Question? @relation(references: [id], fields: [questionId])
+  questionId Int?
+
+  @@unique([userId, questionId])
+  @@unique([userId, answerId])
 }

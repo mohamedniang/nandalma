@@ -1,5 +1,6 @@
 import { IAnswer } from "./IAnswer";
 import { IUser } from "./IUser";
+import { IVote } from "./IVote";
 
 export interface IQuestion {
   id?: number;
@@ -7,5 +8,7 @@ export interface IQuestion {
   authorId: number;
   title: string;
   description: string;
-  answers?: IAnswer[];
+  answers: IAnswer[];
+  voteCount: number;
+  votes: IVote[];
 }

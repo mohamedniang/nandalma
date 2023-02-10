@@ -1,9 +1,9 @@
-type FormValidation = {
+export type FormValidation = {
   hasErrors: boolean;
-  errors?: Map<string, { check: InputValidation }>;
-};
+  message?: string;
+}
 
-type FormErrors = {
+export type FormErrors = {
   field: string;
   check: InputValidation;
-};
+}

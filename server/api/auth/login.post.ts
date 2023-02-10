@@ -9,7 +9,7 @@ export default defineEventHandler(async (event: H3Event) => {
   const data = body as LoginRequest
 
   console.log(`login@data`, data)
-  if(!data.email) throw new Error("email required")
+  if(!data.email) throw new Error("adresse email requis")
   const user = await getUserByEmail(data.email)
   
   console.log(`login@user`, user)
@@ -17,6 +17,6 @@ export default defineEventHandler(async (event: H3Event) => {
   const isPasswordMatching = await bcrypt.compare(data.password, databaseUser.password!)
   console.log(`login@isPasswordMatching`, isPasswordMatching)
   
-  if(!isPasswordMatching) sendError(event, Error('incorrect password'))
+  if(!isPasswordMatching) sendError(event, Error('mot de passe incorrect'))
   else return await makeSession(user, event)
 })

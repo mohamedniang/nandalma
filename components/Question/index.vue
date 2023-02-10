@@ -4,17 +4,28 @@
     @click="handleClick">
     <small class="text-slate-400 h-1">@{{ data.author.username }}</small>
     <h2>{{ data.title }}</h2>
-    <p>{{ data.description?.substr(0, 100) }} (...)</p>
+    <p>{{ descriptionFormatted }}</p>
     <div class="flex items-center justify-end">
-      <small>{{ data.createdAt }}</small>
+      <small class="text-slate-400">{{ dateFormatted }}</small>
     </div>
   </div>
 </template>
 <script setup>
+import { format } from "date-fns";
 const props = defineProps(['data'])
 const router = useRouter()
 async function handleClick() {
   await router.push(`/question/${props.data.id}`)
 }
-// console.log(props.data)
+onMounted(() => {
+  console.log("formatted date:", props.data)
+})
+
+const descriptionFormatted = computed(() => {
+  const first = props.data.description;
+  const second = first.replace(/<\/?[^>]+(>|$)/g, "");
+  const third = second.substr(0, 100) + '(...)'
+  return third
+})
+const dateFormatted = computed(() => format(new Date(props.data.createdAt), "MM/dd/yyyy"))
 </script>

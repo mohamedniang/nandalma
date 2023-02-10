@@ -21,17 +21,39 @@
 
     <div>
       <QuestionContainer :items="questions" />
+      <span v-if="isLoadingQuestions" class="text-center text-slate-400">Gno ngui sett ayi lath deh, takherloul ass
+        toutt rek ...</span>
     </div>
   </div>
 </template>
 <script setup lang="ts">
+import { IQuestion } from '~~/types/IQuestion';
+
 const colorMode = useColorMode()
-const { data: questions } = await useFetch('/api/question', {
-  method: 'GET',
-  query: {}
-})
+const questions = ref<IQuestion[]>([])
+const isLoadingQuestions = ref(false)
+
 console.log('index#setup@colorMode&questions', colorMode.preference, questions.value)
 
+onMounted(async () => {
+  questions.value = await fetchQuestions()
+})
+
+async function fetchQuestions(): Promise<IQuestion[] | []> {
+
+  try {
+    isLoadingQuestions.value = true
+    return await $fetch('/api/question', {
+      method: 'GET',
+      query: {}
+    })
+  } catch (error) {
+    console.error(error);
+    return []
+  } finally {
+    isLoadingQuestions.value = false
+  }
+}
 
 // questions.value = [
 //   {

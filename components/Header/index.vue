@@ -13,16 +13,6 @@
                 aria-current="page">
                 Accueil
               </NuxtLink>
-
-              <a href="#"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Top
-                Posts</a>
-
-              <a href="#"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projet</a>
-
-              <a href="#"
-                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Live</a>
             </div>
           </div>
         </div>
@@ -54,7 +44,7 @@
           <Menu v-else as="div" class="relative inline-block text-left ml-3">
             <div>
               <MenuButton
-                class="inline-flex justify-center border border-gray-300 bg-gray-400 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-500 rounded-full">
+                class="inline-flex justify-center ring-2 ring-slate-600 bg-slate-800 text-sm font-medium text-slate-200 shadow-sm hover:bg-gray-500 hover:text-slate-800 rounded-full focus:ring-slate-500 border-0">
                 <UserIcon class="w-5" />
                 {{ user.username }}
               </MenuButton>
@@ -68,19 +58,12 @@
                 class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none overflow-hidden">
                 <div class="py-1">
                   <MenuItem v-slot="{ active }">
-                  <a href="#"
-                    :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Account
-                    Paramètres </a>
+                  <a href="/profile"
+                    :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Mon compte</a>
                   </MenuItem>
                   <MenuItem v-slot="{ active }">
-                  <a href="#"
-                    :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
-                    Support </a>
-                  </MenuItem>
-                  <MenuItem v-slot="{ active }">
-                  <a href="#"
-                    :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">
-                    Licence </a>
+                  <a href="/support"
+                    :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Nous soutenir</a>
                   </MenuItem>
                 </div>
                 <div class="border-t">
