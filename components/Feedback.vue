@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-flex">
+  <div class="inline-flex flex-col md:flex-row items-center justify-center">
     <HandThumbUpIcon class="w-8 text-green-400 cursor-pointer hover:scale-105" @click="handleSubmit(+1)" />
     <span class="px-3">{{ spinning ? '•••' : votes }}</span>
     <HandThumbDownIcon class="w-8 text-red-400 cursor-pointer hover:scale-105" @click="handleSubmit(-1)" />

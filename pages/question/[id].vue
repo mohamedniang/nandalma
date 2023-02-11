@@ -1,7 +1,7 @@
 <template>
   <div v-if="question" class="flex flex-col p-3 container mx-auto">
     <div class="flex flex-col border-b border-slate-400 pb-3">
-      <h1 class="text-center border-b-2">
+      <h1 class="flex flex-row items-center justify-center border-b-2">
         <Feedback class="mx-2 p-0" @handleSubmit="handleSubmitVote" :votes="question.voteCount" /> {{ question.title }}
       </h1>
       <div v-html="question.description"></div>
