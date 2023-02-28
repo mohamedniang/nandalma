@@ -82,3 +82,8 @@ async function submitAnswer() {
   }
 }
 </script>
+<style lang="scss" scoped>
+pre {
+  overflow-x: auto;
+}
+</style>
